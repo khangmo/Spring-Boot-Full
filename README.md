@@ -5,6 +5,8 @@ Hi all
 This is Project about Spring Boot
 In this project you will find all information relative Spring Boot(MicroServies).
 
+account/password: demo/demo
+
 1. Config title.xml how to defined a page will be returned to client.
 
  @Bean
