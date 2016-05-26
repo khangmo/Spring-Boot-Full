@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <definition name="index" extends="home">
+        <put-attribute name="body" value="/WEB-INF/views/view/home/index.jsp" />
+    </definition>
+	
+    <definition name="greeting" extends="home">
+        <put-attribute name="body" value="/WEB-INF/views/view/home/greeting.jsp" />
+    </definition>
+    
+    <definition name="login" extends="home">
+        <put-attribute name="body" value="/WEB-INF/views/view/login.jsp" />
+    </definition>
+    
+    <definition name="user-manager" extends="home">
+    	<put-attribute name="body" value="/WEB-INF/views/view/management/user-manager.jsp" />
+    </definition>
+    
+    <definition name="update-user" extends="home">
+    	<put-attribute name="body" value="/WEB-INF/views/view/management/update-user.jsp"/>
+    </definition>
+    
+    <definition name="oauth-facebook" extends="home">
+    	<put-attribute name="body" value="/WEB-INF/views/view/facebook/oauth-facebook.jsp"/>
+    </definition>
+    
+    <definition extends="home" name="error">
+        <put-attribute name="body" value="/WEB-INF/views/error/request-not-found.jsp" />
+    </definition>
+</tiles-definitions>

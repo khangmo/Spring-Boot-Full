@@ -1,0 +1,66 @@
+.container{
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.header .navigation-bar{
+	background-image: linear-gradient(to bottom, #7B7C7E 0, #505152 100%);
+	border-bottom: 5px solid #B8B8B8;
+	color: #fff;
+	font-size: 13px;
+	min-height: 42px;
+}
+
+.footer .navigation-bar {
+	background-image: linear-gradient(to bottom, #9F9FA0 0, #828384 100%);
+	color: #fff;
+	font-size: 13px;
+}
+
+.header .navigation-bar a {
+    text-decoration: none;
+}
+
+.header .navigation .li-root {
+    float: left;
+    margin-right: 20px;
+}
+
+.header .navigation .root-menu:hover {
+    color:#FFFFFF;
+}
+
+.header .navigation .root-menu {
+    color: #D7D7D7;
+    display: block;
+    float: left;
+    font-size: 13px;
+    line-height: 45px;
+    text-transform: uppercase;
+}
+
+.header ul {
+	list-style: none;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.header .wrap-content, .footer .wrap-content {
+	margin: 0 auto;
+	padding: 0;
+	position: relative;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+}
+
+form {
+	margin-bottom: 0px;
+}
+
+.form-user-management {
+	margin-bottom: -15px;
+}
