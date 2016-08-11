@@ -21,7 +21,7 @@ public TilesConfigurer tilesConfigurer() {
     return configurer;
 }
 ```
-```java  
+```xml 
 <tiles-definitions>
     <!-- Templates -->
     <definition name="home" template="/WEB-INF/views/layout/home.jsp">
