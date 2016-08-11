@@ -151,7 +151,7 @@ public void addInterceptors(InterceptorRegistry registry) {
 ###6. This project used Bootstrap to design GUI for all page.
 
 ###7. How to control Error Exception in Spring boot.
-```
+```java
 @Component
 public class HandleExceptionRequest implements EmbeddedServletContainerCustomizer {
     @Override
