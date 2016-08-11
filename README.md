@@ -10,7 +10,7 @@
 
 account/password: demo/demo
 
-##1. Config title.xml how to defined a page will be returned to client.
+###1. Config title.xml how to defined a page will be returned to client.
 ```
 @Bean
 public TilesConfigurer tilesConfigurer() {
@@ -33,7 +33,7 @@ public TilesConfigurer tilesConfigurer() {
     </definition>
 </tiles-definitions>
 ```
-##2. Config security in Spring Boot with all users have stored in Mysql Db
+###2. Config security in Spring Boot with all users have stored in Mysql Db
 ```
 @Autowired
 private DataSource datasource;
@@ -72,7 +72,7 @@ private DataSource datasource;
         auth.jdbcAuthentication().dataSource(datasource);
     }
 ```
-##3. Config connect to Mysql Db
+###3. Config connect to Mysql Db
 ```
 @Value("${spring.datasource.driverClassName}")
     protected String databaseDriverClassName;
@@ -100,29 +100,29 @@ private DataSource datasource;
 		return driverManagerDataSource;
 	}
 ```
-##4. Config to support Multi Language in spring boot.
+###4. Config to support Multi Language in spring boot.
 ```
- @Bean
-    public MessageSource messageSource() {
-        ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
-        messageSource.setBasename("/i18/messages");
-        messageSource.setDefaultEncoding("UTF-8");
-        return messageSource;
-    }
-    @Bean
-	public LocaleResolver localeResolver(){
-		CookieLocaleResolver resolver = new CookieLocaleResolver();
-		resolver.setDefaultLocale(new Locale("en"));
-		resolver.setCookieName("myLocaleCookie");
-		resolver.setCookieMaxAge(4800);
-		return resolver;
-	}
-	@Override
-	public void addInterceptors(InterceptorRegistry registry) {
-		LocaleChangeInterceptor interceptor = new LocaleChangeInterceptor();
-		interceptor.setParamName("lang");
-	    registry.addInterceptor(interceptor);
-	}
+@Bean
+public MessageSource messageSource() {
+    ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+    messageSource.setBasename("/i18/messages");
+    messageSource.setDefaultEncoding("UTF-8");
+    return messageSource;
+}
+@Bean
+public LocaleResolver localeResolver(){
+    CookieLocaleResolver resolver = new CookieLocaleResolver();
+    resolver.setDefaultLocale(new Locale("en"));
+    resolver.setCookieName("myLocaleCookie");
+    resolver.setCookieMaxAge(4800);
+    return resolver;
+}
+@Override
+public void addInterceptors(InterceptorRegistry registry) {
+    LocaleChangeInterceptor interceptor = new LocaleChangeInterceptor();
+    interceptor.setParamName("lang");
+    registry.addInterceptor(interceptor);
+}
 ```
 ##5. And some Example about Unit test in spring boot.
 ```
@@ -149,9 +149,9 @@ private DataSource datasource;
                 .andExpect(forwardedUrl("/WEB-INF/views/layout/home.jsp"));
     }
 ```
-##6. This project used Bootstrap to design GUI for all page.
+###6. This project used Bootstrap to design GUI for all page.
 
-##7. How to control Error Exception in Spring boot.
+###7. How to control Error Exception in Spring boot.
 ```
 @Component
 public class HandleExceptionRequest implements EmbeddedServletContainerCustomizer {
@@ -163,7 +163,7 @@ public class HandleExceptionRequest implements EmbeddedServletContainerCustomize
 	}
 }
 ```
-##8. Final, i want to introduce how to deploy this App liction on tomcat.
+###8. Final, i want to introduce how to deploy this App liction on tomcat.
 ```
 @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
