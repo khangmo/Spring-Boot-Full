@@ -62,7 +62,7 @@ protected void configure(HttpSecurity http) throws Exception {
 }
 
 @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
     JdbcUserDetailsManager userDetailsService = new JdbcUserDetailsManager();
     userDetailsService.setDataSource(datasource);
     PasswordEncoder encoder = new BCryptPasswordEncoder();
