@@ -74,30 +74,30 @@ protected void configure(HttpSecurity http) throws Exception {
 ###3. Config connect to Mysql Db
 ```java
 @Value("${spring.datasource.driverClassName}")
-    protected String databaseDriverClassName;
+protected String databaseDriverClassName;
 
-    @Value("${spring.datasource.url}")
-    protected String datasourceUrl;
+@Value("${spring.datasource.url}")
+protected String datasourceUrl;
 
-    @Value("${spring.datasource.username}")
-    protected String databaseUsername;
+@Value("${spring.datasource.username}")
+protected String databaseUsername;
 
-    @Value("${spring.datasource.password}")
-    protected String databasePassword;
-	
-	public static void main(String[] args) {
-		SpringApplication.run(FrameworkApplication.class, args);
-	}
+@Value("${spring.datasource.password}")
+protected String databasePassword;
 
-	@Bean(name = "dataSource")
-	public DriverManagerDataSource dataSource() {
-		DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
-		driverManagerDataSource.setDriverClassName(databaseDriverClassName);
-		driverManagerDataSource.setUrl(datasourceUrl);
-		driverManagerDataSource.setUsername(databaseUsername);
-		driverManagerDataSource.setPassword(databasePassword);
-		return driverManagerDataSource;
-	}
+public static void main(String[] args) {
+    SpringApplication.run(FrameworkApplication.class, args);
+}
+
+@Bean(name = "dataSource")
+public DriverManagerDataSource dataSource() {
+    DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
+    driverManagerDataSource.setDriverClassName(databaseDriverClassName);
+    driverManagerDataSource.setUrl(datasourceUrl);
+    driverManagerDataSource.setUsername(databaseUsername);
+    driverManagerDataSource.setPassword(databasePassword);
+    return driverManagerDataSource;
+}
 ```
 ###4. Config to support Multi Language in spring boot.
 ```java
@@ -126,18 +126,18 @@ public void addInterceptors(InterceptorRegistry registry) {
 ##5. And some Example about Unit test in spring boot.
 ```java
 @Test
-	public void testHomePagesAsAnonymousUnauthorized() throws Exception {
-		mockMvc.perform(get("/home"))
-				.andExpect(status().isFound())
-				.andExpect(redirectedUrl(rootUrl + "/login"));
-	}
-	
-	@Test
-	public void testRootPathAsAnonymousUnauthorized() throws Exception {
-		mockMvc.perform(get("/"))
-		.andExpect(status().isFound())
-		.andExpect(redirectedUrl("/home"));
-	}
+public void testHomePagesAsAnonymousUnauthorized() throws Exception {
+    mockMvc.perform(get("/home"))
+            .andExpect(status().isFound())
+	    .andExpect(redirectedUrl(rootUrl + "/login"));
+}
+
+@Test
+public void testRootPathAsAnonymousUnauthorized() throws Exception {
+    mockMvc.perform(get("/"))
+	    .andExpect(status().isFound())
+	    .andExpect(redirectedUrl("/home"));
+}
 	
 	@Test
     public void testHomePageAsAccountRoleManager() throws Exception {
