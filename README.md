@@ -39,38 +39,38 @@ public TilesConfigurer tilesConfigurer() {
 private DataSource datasource;
 	
 @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/login*", "/share*", "/facebook*").permitAll()
-                .antMatchers("/home", "/home/*", "/greet", "/greet/*", "/user-manager", "/user-manager/*",
-                        "/update-user", "/update-user/*", "create-user", "create-user/*",
-                        "/authen", "/authen/*").authenticated()
-                .and()
-                .formLogin().failureUrl("/login?error")
-                .defaultSuccessUrl("/home")
-                .loginPage("/login")
-                .permitAll()
-                .and()
-                .logout()
-                .deleteCookies("remember-me")
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/login")
-                .permitAll()
-                .and()
-                .rememberMe();
-        http.httpBasic();
-        http.csrf().disable();
-    }
+protected void configure(HttpSecurity http) throws Exception {
+    http.authorizeRequests()
+        .antMatchers("/login*", "/share*", "/facebook*").permitAll()
+        .antMatchers("/home", "/home/*", "/greet", "/greet/*", "/user-manager", "/user-manager/*",
+            "/update-user", "/update-user/*", "create-user", "create-user/*",
+            "/authen", "/authen/*").authenticated()
+        .and()
+        .formLogin().failureUrl("/login?error")
+        .defaultSuccessUrl("/home")
+        .loginPage("/login")
+        .permitAll()
+        .and()
+        .logout()
+        .deleteCookies("remember-me")
+        .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+        .logoutSuccessUrl("/login")
+        .permitAll()
+        .and()
+        .rememberMe();
+    http.httpBasic();
+    http.csrf().disable();
+}
 
-    @Autowired
+@Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        JdbcUserDetailsManager userDetailsService = new JdbcUserDetailsManager();
-        userDetailsService.setDataSource(datasource);
-        PasswordEncoder encoder = new BCryptPasswordEncoder();
+    JdbcUserDetailsManager userDetailsService = new JdbcUserDetailsManager();
+    userDetailsService.setDataSource(datasource);
+    PasswordEncoder encoder = new BCryptPasswordEncoder();
 
-        auth.userDetailsService(userDetailsService).passwordEncoder(encoder);
-        auth.jdbcAuthentication().dataSource(datasource);
-    }
+    auth.userDetailsService(userDetailsService).passwordEncoder(encoder);
+    auth.jdbcAuthentication().dataSource(datasource);
+}
 ```
 ###3. Config connect to Mysql Db
 ```
