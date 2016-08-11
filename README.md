@@ -2,7 +2,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 # Spring-Boot-Full
-** This Project will helps you all information and solution about Spring Boot (For all developers want develop Web Application) **
+**This Project will helps you all information and solution about Spring Boot (For all developers want develop Web Application)**
 
 > Hi all 
 >This is Project about Spring Boot
@@ -10,7 +10,7 @@
 
 account/password: demo/demo
 
-- 1. Config title.xml how to defined a page will be returned to client.
+##1. Config title.xml how to defined a page will be returned to client.
 ```
 @Bean
 public TilesConfigurer tilesConfigurer() {
@@ -33,7 +33,7 @@ public TilesConfigurer tilesConfigurer() {
     </definition>
 </tiles-definitions>
 ```
-2. Config security in Spring Boot with all users have stored in Mysql Db
+##2. Config security in Spring Boot with all users have stored in Mysql Db
 ```
 @Autowired
 private DataSource datasource;
@@ -72,8 +72,8 @@ private DataSource datasource;
         auth.jdbcAuthentication().dataSource(datasource);
     }
 ```
-3. Config connect to Mysql Db
-
+##3. Config connect to Mysql Db
+```
 @Value("${spring.datasource.driverClassName}")
     protected String databaseDriverClassName;
 
@@ -99,9 +99,9 @@ private DataSource datasource;
 		driverManagerDataSource.setPassword(databasePassword);
 		return driverManagerDataSource;
 	}
-
-4. Config to support Multi Language in spring boot.
-
+```
+##4. Config to support Multi Language in spring boot.
+```
  @Bean
     public MessageSource messageSource() {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
@@ -123,9 +123,9 @@ private DataSource datasource;
 		interceptor.setParamName("lang");
 	    registry.addInterceptor(interceptor);
 	}
-
-5. And some Example about Unit test in spring boot.
-
+```
+##5. And some Example about Unit test in spring boot.
+```
 @Test
 	public void testHomePagesAsAnonymousUnauthorized() throws Exception {
 		mockMvc.perform(get("/home"))
@@ -148,11 +148,11 @@ private DataSource datasource;
                 .andExpect(status().isOk())
                 .andExpect(forwardedUrl("/WEB-INF/views/layout/home.jsp"));
     }
+```
+##6. This project used Bootstrap to design GUI for all page.
 
-6. This project used Bootstrap to design GUI for all page.
-
-7. How to control Error Exception in Spring boot.
-
+##7. How to control Error Exception in Spring boot.
+```
 @Component
 public class HandleExceptionRequest implements EmbeddedServletContainerCustomizer {
 	@Override
@@ -162,9 +162,11 @@ public class HandleExceptionRequest implements EmbeddedServletContainerCustomize
 		container.addErrorPages(new ErrorPage(HttpStatus.FORBIDDEN, "/error-forbidden"));
 	}
 }
-
-8. Final, i want to introduce how to deploy this App liction on tomcat.
+```
+##8. Final, i want to introduce how to deploy this App liction on tomcat.
+```
 @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         return application.sources(FrameworkApplication.class);
     }  
+```
